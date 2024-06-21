@@ -257,3 +257,4 @@ mv -- "$TMP_DOWNLOAD_DIR/$distributionUrlNameMain" "$MAVEN_HOME" || [ -d "$MAVEN
 
 clean || :
 exec_maven "$@"
+>>>>>>> 75b098f (project in Repo anlegen)
