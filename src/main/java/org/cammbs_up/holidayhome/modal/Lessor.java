@@ -21,16 +21,16 @@ public class Lessor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_vermieterIn", nullable = false)
-    private Long idLessor;
+    private int idLessor;
 
     @Column(name="nachnamen")
     private String lastname;
     @Column(name="vornamen")
     private String firstname;
-    public Long getIdLessor() {
+    public int getIdLessor() {
         return idLessor;
     }
-    public void setIdLessor(Long idLessor) {
+    public void setIdLessor(int idLessor) {
         this.idLessor = idLessor;
     }
 

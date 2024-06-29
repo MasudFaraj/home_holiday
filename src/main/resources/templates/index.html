@@ -1,22 +1,12 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" xmlns:th="http://www.w3.org/1999/html">
 <head>
    <th:block th:replace="~{fragment/general::head}"></th:block>
-    <title>Ferienhaus Nordstrand</title>
+    <title>Ferienhäuser Nordstrand</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <h1><a href="#">Ferienhaus Nordstrand</a></h1>
-        <nav>
-            <ul>
-                <li><a href="/homepage">Startseite</a></li>
-                <li><a href="/galerie">Galerie</a></li>
-                <li><a href="/contact">Kontakt</a></li>
-                <li><a href="/directions">Anfahrt</a></li>
-            </ul>
-        </nav>
-    </header>
+     <header th:replace="~{fragment/general::header}"></header>
     <main>
         <section>
             <h2>Willkommen im Ferienhaus Nordstrand</h2>

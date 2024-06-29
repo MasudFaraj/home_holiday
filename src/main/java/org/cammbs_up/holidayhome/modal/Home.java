@@ -2,6 +2,8 @@ package org.cammbs_up.holidayhome.modal;
 
 import jakarta.persistence.*;
 
+import java.io.File;
+
 /**
  * Home
  * Dokumentation
@@ -72,6 +74,12 @@ public class Home {
     @Column(name="hauseigener_parkplatz")
     private boolean onSiteParking;
 
+    public String getImage(){
+        String path="src/main/resources/static/images/holidayhomebilder";
+        String filename = accommodationName + ".jpg";
+        File file = new File(path + filename);
+        return (file.exists()) ? filename : "logo_holiday_home.png";
+    }
     public int getIdAccommodation() {
         return idAccommodation;
     }

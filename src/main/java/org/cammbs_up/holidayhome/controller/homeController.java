@@ -1,5 +1,9 @@
 package org.cammbs_up.holidayhome.controller;
 
+import org.cammbs_up.holidayhome.repository.HomeRepo;
+import org.cammbs_up.holidayhome.repository.LessorRepo;
+import org.cammbs_up.holidayhome.repository.PriceRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -18,6 +22,13 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class homeController {
+
+    @Autowired
+    private HomeRepo homeRepo;
+    @Autowired
+    private LessorRepo lessorRepo;
+    @Autowired
+    private PriceRepo priceRepo;
 
     @GetMapping("/homepage")
     public String showHomeIndex(){

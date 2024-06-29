@@ -20,8 +20,8 @@ import jakarta.persistence.*;
 public class Price {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_price", nullable = false)
-    private Long idPrice;
+    @Column(name = "id_preis", nullable = false)
+    private int idPrice;
 
     @Column(name="saison_a")
     private double seasonA;
@@ -54,11 +54,11 @@ public class Price {
         this.seasonC = seasonC;
     }
 
-    public Long getIdPrice() {
+    public int getIdPrice() {
         return idPrice;
     }
 
-    public void setIdPrice(Long idPrice) {
+    public void setIdPrice(int idPrice) {
         this.idPrice = idPrice;
     }
 }
