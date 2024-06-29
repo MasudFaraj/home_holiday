@@ -1,7 +1,7 @@
 package org.cammbs_up.holidayhome.modal;
 
 import jakarta.persistence.*;
-
+import java.lang.*;
 import java.io.File;
 
 /**
@@ -75,8 +75,8 @@ public class Home {
     private boolean onSiteParking;
 
     public String getImage(){
-        String path="src/main/resources/static/images/holidayhomebilder";
-        String filename = accommodationName + ".jpg";
+        String path="src/main/resources/static/images/holidayhomebilder/";
+        String filename = accommodationName.toLowerCase().replace("\s","") + ".jpg";
         File file = new File(path + filename);
         return (file.exists()) ? filename : "logo_holiday_home.png";
     }

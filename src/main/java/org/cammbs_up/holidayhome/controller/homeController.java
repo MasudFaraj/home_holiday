@@ -1,11 +1,16 @@
 package org.cammbs_up.holidayhome.controller;
 
+import org.cammbs_up.holidayhome.modal.Home;
 import org.cammbs_up.holidayhome.repository.HomeRepo;
 import org.cammbs_up.holidayhome.repository.LessorRepo;
 import org.cammbs_up.holidayhome.repository.PriceRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 /**
  * homeController
@@ -49,6 +54,11 @@ public class homeController {
         return "kontakt";
     }
 
-
+    @GetMapping("/list")
+    public String showlist(Model model){
+        List<Home> homeList= homeRepo.findAll(Sort.by("accommodationName"));
+        model.addAttribute("homeList", homeList);
+        return "homelist";
+    }
 
 }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragment/general::head}"></th:block>
+    <title>Listenansicht - Ferienhäuser Nordstrand</title>
+</head>
+<body>
+
+    <header th:replace="~{fragment/general::header}"></header>
+
+    <main class="container-fluid ">
+    <table class="table table-info table-hover table-bordered">
+        <thead class=" table-primary accent">
+            <tr>
+                <th></th>
+                <th>Ferienhaus/Wohnung</th>
+                <th>Name der Unterkunft</th>
+                <th>Nachname der Vermieter</th>
+                <th>Vorname der Vermieter</th>
+                <th>Stadt</th>
+                <th>Quadratmeter</th>
+                <th>Anzahl Betten</th>
+                <th>Küchenausstattung<br>Kü=Küche Kn=kochnische</th>
+                <th>Bad=B Dusche=D</th>
+                <th colspan="3">
+                    <div>Preis/Nacht</div>
+                    <table class="table table-bordered table-sm table-info">
+                        <tr>
+                            <th>Saison A:</th>
+                            <th>Saison B:</th>
+                            <th>Saison C:</th>
+                        </tr>
+                        <tr>
+                            <th>15.06-10.09</th>
+                            <th>20.03-14.06<br>11.09-31.10<br>20.12-10.01</th>
+                            <th>01.11-19.12<br>11.01-19.03</th>
+                        </tr>
+                    </table>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="home : ${homeList}" th:object="${home}">
+                <td>
+                    <img th:src="@{'images/holidayhomebilder/'+*{getImage()}}" class="img-thumbnail" width="100%" height="100%">
+                </td>
+                <td th:text="*{type}"></td>
+                <td th:text="*{accommodationName}"/>
+                <td th:text="*{lessor==null} ? '&#8210' : *{lessor.getLastname()}"/>
+                <td th:text="*{lessor?.firstname}"/>
+                <td th:text="*{city}"/>
+                <td th:text="*{area}"/>
+                <td th:text="*{numberOfBeds}"/>
+                <td th:text="*{kitchenType}"/>
+                <td th:text="*{showerOrBathtub}"/>
+                <td th:text="*{#numbers.formatCurrency(price.getSeasonA())}"></td>
+                <td th:text="*{#numbers.formatCurrency(price.getSeasonB())}"></td>
+                <td th:text="*{#numbers.formatCurrency(price.getSeasonC())}"></td>
+            </tr>
+        </tbody>
+    </table>
+    </main>
+    </main>
+    <footer th:replace="~{fragment/general::footer}"/>
+
+
+</body>
+</html>
