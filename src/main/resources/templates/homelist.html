@@ -42,7 +42,8 @@
         <tbody>
             <tr th:each="home : ${homeList}" th:object="${home}">
                 <td>
-                    <img th:src="@{'images/holidayhomebilder/'+*{getImage()}}" class="img-thumbnail" width="100%" height="100%">
+                    <img th:src="@{'images/holidayhomebilder/'+*{getImage()}}" class="img-thumbnail"
+                         width="100%" height="100%" th:onclick="'showHomeDetails('+${home.getIdAccommodation()}+')'">
                 </td>
                 <td th:text="*{type}"></td>
                 <td th:text="*{accommodationName}"/>
