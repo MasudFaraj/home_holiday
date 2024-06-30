@@ -9,6 +9,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -59,6 +60,12 @@ public class homeController {
         List<Home> homeList= homeRepo.findAll(Sort.by("accommodationName"));
         model.addAttribute("homeList", homeList);
         return "homelist";
+    }
+    @GetMapping("/details")
+    public String showHomeDetails(@RequestParam int id, Model model){
+        Home home = homeRepo.findByIdAccommodation(id);
+        model.addAttribute(home);
+        return "homedetails";
     }
 
 }

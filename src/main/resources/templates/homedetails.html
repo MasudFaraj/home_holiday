@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <th:block th:replace="~{fragment/general::head}"></th:block>
+  <title>Homedetails - Ferienhäuser Nordstrand</title>
+
+</head>
+<body>
+    <header th:replace="~{fragment/general::header}"></header>
+
+    <table th:object="${home}" class="card w-95" >
+        <tr>
+            <td th:text="*{getAccommodationName()}"></td>
+            <td>
+                <p>Anzahl Schlafzimmer</p>
+                <p th:text="${home.getNumberOfBedrooms()}"></p>
+            </td>
+        </tr>
+        <tr rowspan="6">
+            <td><img th:src="@{'images/holidyhome/'+*{getImage()}}" ></td>
+            <td>
+                <p>Anzahl Wohnräume</p>
+                <p th:text="*{getNumberOfLivingrooms()}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Zimmer gesamt</p>
+                <p th:text="*{getNumberOfLivingrooms()+getNumberOfBedrooms()}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>WLAN</p>
+                <p th:text="*{isWlan()}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Hunde erlaubt</p>
+                <p th:text="*{isDogsAllowed()}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Nichtraucher</p>
+                <p th:text="*{isNonSmoker()}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>TV</p>
+                <p th:text="*{isTv()}"></p>
+            </td>
+        </tr>
+        <tr rowspan="3">
+            <td th:utext="" ></td>
+            <td>
+                <p>Waschmaschine</p>
+                <p th:text="*{isWashingMachine()}"></p>
+            </td>
+        </tr>
+            <td>
+                <p>Parkplatz</p>
+                <p th:text="*{isOnSiteParking()}"></p>
+            </td>
+        <tr>
+            <td>
+                <p>Sauna</p>
+                <p th:text="*{isSauna()}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a th:href="@{delete(id=*{getIdAccommodation()})}" class="btn btn-danger">delete</a>
+            </td>
+            <td>
+                <a th:href="@{edit(id=*{getIdAccommodation()})}" class="btn btn-danger">edit</a>
+            </td>
+        </tr>
+    </table>
+
+
+    <footer th:replace="~{fragment/general::footer}"/>
+
+</body>
+</html>

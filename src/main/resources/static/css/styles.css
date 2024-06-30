@@ -32,15 +32,16 @@ header table li a {
     padding: 14px 16px;
     text-decoration: none;
 }
-main {
 
+main {
+    margin:20px;
 }
 footer {
     background: blue;
     color: #ffffff;
     text-align: center;
     padding: 10px 0;
-    /*position: absolute;*/
+    position: -ms-device-fixed;
     bottom: 0;
     width: 100%;
 }

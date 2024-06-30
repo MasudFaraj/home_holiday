@@ -73,6 +73,16 @@ public class Home {
     private boolean nonSmoker;
     @Column(name="hauseigener_parkplatz")
     private boolean onSiteParking;
+    @Column(name="sauna")
+        private boolean sauna;
+
+    public boolean isSauna() {
+        return sauna;
+    }
+
+    public void setSauna(boolean sauna) {
+        this.sauna = sauna;
+    }
 
     public String getImage(){
         String path="src/main/resources/static/images/holidayhomebilder/";
