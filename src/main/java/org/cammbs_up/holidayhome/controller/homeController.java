@@ -1,6 +1,7 @@
 package org.cammbs_up.holidayhome.controller;
 
 import org.cammbs_up.holidayhome.modal.Home;
+import org.cammbs_up.holidayhome.modal.Price;
 import org.cammbs_up.holidayhome.repository.HomeRepo;
 import org.cammbs_up.holidayhome.repository.LessorRepo;
 import org.cammbs_up.holidayhome.repository.PriceRepo;
@@ -66,6 +67,38 @@ public class homeController {
         Home home = homeRepo.findByIdAccommodation(id);
         model.addAttribute(home);
         return "homedetails";
+    }
+    /*
+    * @GetMapping("/add")
+    public String showAddWineForm(Model model){
+        Wine wine= new Wine();
+        model.addAttribute("wine", wine);
+        List<Country> countries= countryRepo.findAll();
+        model.addAttribute("countryList", countries);
+        return "wine_form";
+    }
+    * @PostMapping("/save")
+    public String saveWine(@ModelAttribute Wine wine, @RequestParam(value = "action") String action){
+       if(action.equals("save")) {
+           wineRepo.save(wine);
+       }
+        return "redirect:/";    // "/" startsite
+        // "?" save navigation operator
+    }
+    @GetMapping("/edit")
+    public String showEditHome(Model model, @RequestParam int id){
+
+        Home home = homeRepo.findByIdWine(id);
+        model.addAttribute(home);
+        List<Price> countries= countryRepo.findAll();
+        model.addAttribute("countryList", countries);
+        return "wine_form";
+    }
+    */
+    @GetMapping("/delete")
+    public String delete(@RequestParam int id){
+        homeRepo.deleteById(id);
+        return "redirect:/";
     }
 
 }
