@@ -9,4 +9,5 @@ public interface HomeRepo extends JpaRepository<Home, Integer> {
 
     Home findByIdAccommodation(int id);
 
+    Home findByIdHome(int id);
 }

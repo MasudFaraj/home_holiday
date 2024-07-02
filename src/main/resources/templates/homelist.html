@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <th:block th:replace="~{fragment/general::head}"></th:block>
+    <script th:src="@{js/functions.js}"></script>
     <title>Listenansicht - Ferienhäuser Nordstrand</title>
 </head>
 <body>
@@ -42,9 +43,10 @@
             <tbody>
                 <tr th:each="home : ${homeList}" th:object="${home}" th:onclick="'showHomeDetails('+${home.getIdAccommodation()}+')'">
                     <td>
-                        <img th:src="@{'images/holidayhomebilder/'+*{getImage()}}" class="img-thumbnail"
+                        <img th:src="@{'images/holidayhomebilder/'+*{getImage()}}" class="img-thumbnail" alt="home photo"
                              width="100%" height="100%" >
                     </td>
+<!--                    <input type="hidden" th:text="*{getIdAccommodation()}"/>-->
                     <td th:text="*{getType()}"></td>
                     <td th:text="*{getAccommodationName()}"/>
                     <td th:text="*{lessor==null} ? '&#8210' : *{lessor.getLastname()}"/>

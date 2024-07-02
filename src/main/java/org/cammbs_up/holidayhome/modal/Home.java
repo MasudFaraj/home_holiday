@@ -71,10 +71,21 @@ public class Home {
     private boolean dogsAllowed;
     @Column(name="nichtraucher")
     private boolean nonSmoker;
+
     @Column(name="hauseigener_parkplatz")
     private boolean onSiteParking;
+
     @Column(name="sauna")
         private boolean sauna;
+    @Column(name="beschreibungstext")
+        private String description;
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public boolean isSauna() {
         return sauna;

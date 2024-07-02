@@ -68,6 +68,11 @@ public class homeController {
         model.addAttribute(home);
         return "homedetails";
     }
+    @GetMapping("/delete")
+    public String delete(@RequestParam int id){
+        homeRepo.deleteById(id);
+        return "redirect:/";
+    }
     /*
     * @GetMapping("/add")
     public String showAddWineForm(Model model){
@@ -84,21 +89,16 @@ public class homeController {
        }
         return "redirect:/";    // "/" startsite
         // "?" save navigation operator
-    }
+    } */
     @GetMapping("/edit")
     public String showEditHome(Model model, @RequestParam int id){
 
-        Home home = homeRepo.findByIdWine(id);
+        Home home = homeRepo.findByIdHome(id);
         model.addAttribute(home);
-        List<Price> countries= countryRepo.findAll();
-        model.addAttribute("countryList", countries);
-        return "wine_form";
+//        List<Price> countries= countryRepo.findAll();
+//        model.addAttribute("countryList", countries);
+        return "home_form";
     }
-    */
-    @GetMapping("/delete")
-    public String delete(@RequestParam int id){
-        homeRepo.deleteById(id);
-        return "redirect:/";
-    }
+
 
 }

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragment/general::head}"></th:block>
+    <title>Home Form - Ferienhäuser Nordstrand</title>
+    <title>Title</title>
+</head>
+<body>
+    <header th:replace="~{fragment/general::header}"></header>
+
+<!--
+<form action="/save" method="post">
+
+  <div class="container" th:object="${wine}">
+
+    <input type="hidden" th:field="*{idWine}">
+    <div class="row">
+      <div class="col-md-2 mb-2">
+        <label class="col-auto col-form-label control-label">Name</label>
+      </div>
+      <div class="col-md-3 mb-2">
+        <input type="text" th:field="*{name}" class="form-control"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 mb-2">
+        <label class="col-auto col-form-label">Jahr</label>
+      </div>
+      <div class="col-md-3 mb-2">
+        <input type="text" th:field="*{vintage}" class="form-control"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 mb-2">
+        <label class="col-auto col-form-label control-label">Preis</label>
+      </div>
+      <div class="col-md-3 mb-2">
+        <input type="text" th:field="*{price}"
+               class="form-control" pattern="[0-9]+([.][0-9]{1,2})?"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 mb-2">
+        <label class="col-auto col-form-label control-label">Land</label>
+      </div>
+      <div class="col-md-3 mb-2">
+        <select th:field="${wine.country}" class="">
+          <option th:each="country : ${countryList}" th:text="${country.name}" th:value="${country.getId()}" ></option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 mb-2">
+        <label class="col-auto col-form-label control-label">Datum</label>
+      </div>
+      <div class="col-md-3 mb-2">
+        <input type="date" class=""></input>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 mb-2">
+        <label class="col-auto col-form-label">Kurzbeschreibung</label>
+      </div>
+      <div class="col-md-4 mb-2">
+        <textarea th:field="*{shortDescription}" class="form-control"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        <button  name="action" value="save" class="btn btn-primary">speichern</button>
+
+        <button  name="action" value="cancel" class="btn btn-info">abbrechen</button>
+      </div>
+    </div>
+    <audio autoplay height="10" width="10" loop>
+      <source src="sound/sinatra.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+  </div>
+</form>
+</body>
+                <button href="\" class="btn btn-info">abbrechen</button>-->
+    <footer th:replace="~{fragment/general::footer}"/>
+
+</body>
+</html>

@@ -8,77 +8,90 @@
 <body>
     <header th:replace="~{fragment/general::header}"></header>
 
-    <table th:object="${home}" class="card w-95" >
-        <tr>
-            <td th:text="*{getAccommodationName()}"></td>
-            <td>
-                <p>Anzahl Schlafzimmer</p>
-                <p th:text="${home.getNumberOfBedrooms()}"></p>
-            </td>
-        </tr>
-        <tr rowspan="6">
-            <td><img th:src="@{'images/holidyhome/'+*{getImage()}}" ></td>
-            <td>
-                <p>Anzahl Wohnräume</p>
-                <p th:text="*{getNumberOfLivingrooms()}"></p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Zimmer gesamt</p>
+<!--    <img th:src="@{'images/holidayhomebilder/'+*{getImage()}}">-->
+    <div th:object="${home}" class="container-fluid m-3" >
+        <div class="row">
+            <div class="col-lg-3 bg-warning text-blue">
+                <p><strong>Name der Unterkunft</strong> </p>
+               <p th:text="*{getAccommodationName()}"></p>
+            </div>
+            <div class="col-lg-3 bg-warning text-blue">
+                <p><strong>Zimmer gesamt</strong></p>
                 <p th:text="*{getNumberOfLivingrooms()+getNumberOfBedrooms()}"></p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>WLAN</p>
-                <p th:text="*{isWlan()}"></p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Hunde erlaubt</p>
-                <p th:text="*{isDogsAllowed()}"></p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Nichtraucher</p>
+            </div>
+            <div class="col-lg-3 bg-warning">
+                <p><strong>Anzahl Schlafzimmer</strong> </p>
+                <p th:text="${home.getNumberOfBedrooms()}"></p>
+            </div>
+            <div class="col-lg-3 bg-warning text-blue">
+                <p><strong>Anzahl Wohnräume</strong></p>
+                <p th:text="*{getNumberOfLivingrooms()}"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 bg-warning text-blue">
+                <p><strong>stadt</strong></p>
+                <p th:text="*{getCity()}"></p>
+            </div>
+            <div class="col-lg-3 bg-warning text-blue">
+                <p><strong>Quadratmeter</strong></p>
+                <p th:text="*{getArea()}"></p>
+            </div><div class="col-lg-3 bg-warning text-blue">
+                <p><strong>Anzahl Betten</strong></p>
+                <p th:text="*{getNumberOfBeds()}"></p>
+            </div><div class="col-lg-3 bg-warning text-blue">
+                <p><strong>Küchenausstattung/Kü=Küche Kn=kochnische</strong></p>
+                <p th:text="*{getKitchenType() }"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 bg-warning text-blue">
+                <p><strong>Bad=B Dusche=D</strong></p>
+                <p th:text="*{getShowerOrBathtub()}"></p>
+            </div>
+            <div class="col-lg-3 bg-warning text-blue">
+                <p><strong>Nichtraucher</strong></p>
                 <p th:text="*{isNonSmoker()}"></p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>TV</p>
-                <p th:text="*{isTv()}"></p>
-            </td>
-        </tr>
-        <tr rowspan="3">
-            <td th:utext="" ></td>
-            <td>
-                <p>Waschmaschine</p>
-                <p th:text="*{isWashingMachine()}"></p>
-            </td>
-        </tr>
-            <td>
-                <p>Parkplatz</p>
+            </div><div class="col-lg-3 bg-warning text-blue">
+                <p><strong>Parkplatz</strong></p>
                 <p th:text="*{isOnSiteParking()}"></p>
-            </td>
-        <tr>
-            <td>
-                <p>Sauna</p>
+            </div><div class="col-lg-3 bg-warning text-blue">
+                <p><strong>Waschmaschine</strong></p>
+                <p th:text="*{isWashingMachine()}"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 bg-warning text-blue">
+                <p><strong>WLAN</strong></p>
+                <p th:text="*{isWlan()}"></p>
+            </div>
+            <div class="col-lg-3 bg-warning text-blue">
+                <p><strong>Hunde erlaubt</strong></p>
+                <p th:text="*{isDogsAllowed()}"></p>
+            </div><div class="col-lg-3 bg-warning text-blue">
+                <p><strong>TV</strong></p>
+                <p th:text="*{isTv()}"></p>
+            </div><div class="col-lg-3 bg-warning text-blue">
+                <p><strong>Sauna</strong></p>
                 <p th:text="*{isSauna()}"></p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a th:href="@{delete(id=*{getIdAccommodation()})}" class="btn btn-danger">delete</a>
-            </td>
-            <td>
-                <a th:href="@{edit(id=*{getIdAccommodation()})}" class="btn btn-danger">edit</a>
-            </td>
-        </tr>
-    </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 bg-warning text-blue">
+                <p><strong>Beschreibung</strong></p>
+                <p th:text="*{getDescription()}"></p>
+            </div>
+        </div>
+        <div class="row">
+           <div class="col-lg-3 bg-warning text-blue">
+               <a th:href="@{delete(id=*{getIdAccommodation()})}" class="btn btn-danger">delete</a>
+               <a th:href="@{edit(id=*{getIdAccommodation()})}" class="btn btn-danger">edit</a>
+           </div>
+            <div class="col-lg-9 bg-warning text-blue">
+            </div>
+        </div>
+
+    </div>
 
 
     <footer th:replace="~{fragment/general::footer}"/>
