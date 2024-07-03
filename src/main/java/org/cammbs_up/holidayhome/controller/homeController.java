@@ -59,6 +59,9 @@ public class homeController {
     @GetMapping("/list")
     public String showlist(Model model){
         List<Home> homeList= homeRepo.findAll(Sort.by("accommodationName"));
+        System.err.println(homeList.get(0).getCity());
+//        System.err.println(homeList.get(0).getLessor().getFirstname());
+//        System.err.println(homeList.get(0).getPrice().getSeasonA());
         model.addAttribute("homeList", homeList);
         return "homelist";
     }
@@ -93,7 +96,7 @@ public class homeController {
     @GetMapping("/edit")
     public String showEditHome(Model model, @RequestParam int id){
 
-        Home home = homeRepo.findByIdHome(id);
+        Home home = homeRepo.findByIdAccommodation(id);
         model.addAttribute(home);
 //        List<Price> countries= countryRepo.findAll();
 //        model.addAttribute("countryList", countries);
