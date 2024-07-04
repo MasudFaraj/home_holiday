@@ -14,14 +14,13 @@
             <thead class=" table-primary accent">
                 <tr>
                     <th></th>
-                    <th>Ferienhaus/Wohnung</th>
+                    <th>Typ der Unterkunft</th>
                     <th>Name der Unterkunft</th>
-                    <th>Nachname der Vermieter</th>
-                    <th>Vorname der Vermieter</th>
+                    <th>Name der Vermieter</th>
                     <th>Stadt</th>
                     <th>Quadratmeter</th>
                     <th>Anzahl Betten</th>
-                    <th>Küchenausstattung<br>Kü=Küche Kn=kochnische</th>
+                    <th>Küchenausstattung</th>
                     <th>Bad=B Dusche=D</th>
                     <th colspan="3">
                         <div>Preis/Nacht</div>
@@ -42,21 +41,19 @@
             </thead>
             <tbody>
                 <tr th:each="home : ${homeList}" th:object="${home}" th:onclick="'showHomeDetails('+${home.getIdAccommodation()}+')'">
-                    <td>
-                        <img th:src="@{'images/holidayhomebilder/'+*{getImage()}}" class="img-thumbnail" alt="home photo"
-                             width="100%" height="100%" >
+                    <td style="padding: 0">
+                       <figure class="bildanpassen"><img id="vorschaubild" th:src="@{'images/holidayhomebilder/'+*{getImage()}}" class="img-thumbnail" alt="home photo"></figure>
                     </td>
 <!--                    <input type="hidden" th:text="*{getIdAccommodation()}"/>-->
-                    <td th:text="*{getType()}"></td>
+                    <td th:text="*{getType()== 'FH'} ? Ferienhaus : Ferienwohnung"></td>
                     <td th:text="*{getAccommodationName()}"/>
-                    <td th:text="*{lessor==null} ? '&#8210' : *{lessor.getLastname()}"/>
-                    <td th:text="*{lessor?.firstname}"/>
+                    <td th:text="*{getLessor()?.getLastname()} + ' ' + *{getLessor()?.getFirstname()}"/>
                     <td th:text="*{city}"/>
                     <td th:text="*{area}"/>
                     <td th:text="*{numberOfBeds}"/>
-                    <td th:text="*{kitchenType}"/>
+                    <td th:text="*{kitchenType} == 'Kn' ? Kochnische : Küche"/>
                     <td th:text="*{showerOrBathtub}"/>
-                    <td th:text="*{#numbers.formatCurrency(price.getSeasonA())}"></td>
+                    <td th:text="*{#numbers.formatCurrency(getPrice().getSeasonA())}"></td>
                     <td th:text="*{#numbers.formatCurrency(price.getSeasonB())}"></td>
                     <td th:text="*{#numbers.formatCurrency(price.getSeasonC())}"></td>
                 </tr>

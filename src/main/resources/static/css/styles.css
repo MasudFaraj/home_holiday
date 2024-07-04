@@ -25,7 +25,16 @@ header table ul {
 header table li {
     float: left;
 }
-
+.bildanpassen{
+    width:150px;
+    height:150px;
+    margin:0;
+}
+#vorschaubild{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
 header table li a {
     display: inline;
     color: white;
@@ -47,4 +56,6 @@ footer {
     width: 100%;
     font-family: 'Arima Madurai', cursive;
 }
+
+
 
