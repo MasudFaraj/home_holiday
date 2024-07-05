@@ -18,7 +18,7 @@
                     <th>Name der Unterkunft</th>
                     <th>Name der Vermieter</th>
                     <th>Stadt</th>
-                    <th>Quadratmeter</th>
+                    <th><a href="@{|?sort=area&order=${order}|}" >Quadratmeter</a></th>
                     <th>Anzahl Betten</th>
                     <th>Küchenausstattung</th>
                     <th>Bad=B Dusche=D</th>
@@ -42,7 +42,7 @@
             <tbody>
                 <tr th:each="home : ${homeList}" th:object="${home}" th:onclick="'showHomeDetails('+${home.getIdAccommodation()}+')'">
                     <td style="padding: 0">
-                       <figure class="bildanpassen"><img id="vorschaubild" th:src="@{'images/holidayhomebilder/'+*{getImage()}}" class="img-thumbnail" alt="home photo"></figure>
+                       <figure class="bildanpassen"><img id="vorschaubild" th:src="@{'images/holidayhomebilder/thumbnails/'+*{getImage()}}" class="img-thumbnail" alt="home photo"></figure>
                     </td>
 <!--                    <input type="hidden" th:text="*{getIdAccommodation()}"/>-->
                     <td th:text="*{getType()== 'FH'} ? Ferienhaus : Ferienwohnung"></td>

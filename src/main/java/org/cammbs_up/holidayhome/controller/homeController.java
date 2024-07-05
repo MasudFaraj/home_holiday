@@ -57,11 +57,22 @@ public class homeController {
     }
 
     @GetMapping("/list")
-    public String showlist(Model model){
-        List<Home> homeList= homeRepo.findAll(Sort.by("accommodationName"));
-        System.err.println(homeList.get(0).getCity());
+    public String showlist(@RequestParam String sort, @RequestParam(defaultValue = "asc") String order, Model model){
+        List<Home> homeList;
+        Sort.Direction direction= (order.equals("desc") ?  Sort.Direction.DESC : Sort.Direction.ASC);
+        if ( sort =="area"){
+            homeList = homeRepo.findAll(Sort.by(direction, "area"));
+        } else {
+            homeList= homeRepo.findAll(Sort.by("city").ascending().
+                    and(Sort.by("accommodationName").ascending()));
+            model.addAttribute("order", order.equals(" "));
+        }
+        /* System.err.println(homeList.get(0).getCity());
+        System.err.println(homeList.get(0).getImage()); */
 //        System.err.println(homeList.get(0).getLessor().getFirstname());
 //        System.err.println(homeList.get(0).getPrice().getSeasonA());
+        model.addAttribute("sort",  sort);
+        model.addAttribute("order", order.equals("asc") ? "desc" : "asc");
         model.addAttribute("homeList", homeList);
         return "homelist";
     }

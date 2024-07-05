@@ -96,10 +96,18 @@ public class Home {
     }
 
     public String getImage(){
-        String path="src/main/resources/static/images/holidayhomebilder/";
-        String filename = accommodationName.toLowerCase().replace("\s","") + ".jpg";
+        String path="src/main/resources/static/images/holidayhomebilder/thumbnails/";
+        String filename = getAccommodationName().replace("ü","ue").replace("ö","oe") + ".jpg";
         File file = new File(path + filename);
         return (file.exists()) ? filename : "logo_holiday_home.png";
+    }
+    public String getDetailsImages(){
+        String path="src/main/resources/static/images/holidayhomebilder/details_images/";
+        String filename = getAccommodationName().replace("ü","ue").replace("ö","oe") + ".jpg";
+        File file = new File(path + filename);
+        String detailImage = getAccommodationName().replace("ü","ue").replace("ö","oe");
+        System.err.println(detailImage);
+        return (file.exists()) ? detailImage : "logo_holiday_home.png";
     }
     public int getIdAccommodation() {
         return idAccommodation;

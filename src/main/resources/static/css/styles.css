@@ -56,6 +56,35 @@ footer {
     width: 100%;
     font-family: 'Arima Madurai', cursive;
 }
+#demo{
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+}
 
+.carousel-inner>.carousel-item>img {
+    margin: 0 auto;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+#demo-index{
+    width:100%;
+    height:auto;
+    margin: 0;
+}
 
-
+.main-header {
+    font-size: 24px;
+}
+.second-header {
+    font-size: 18px;
+}
+h2,h3 {
+    font-family:  'Arima Madurai', cursive;
+    line-height: 4;
+    color: #578cc9;
+}
+#price-table th {
+    color: #578cc9;
+}
