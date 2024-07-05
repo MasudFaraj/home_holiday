@@ -57,7 +57,7 @@ public class homeController {
     }
 
     @GetMapping("/list")
-    public String showlist(@RequestParam String sort, @RequestParam(defaultValue = "asc") String order, Model model){
+    public String showlist(@RequestParam(defaultValue = " ") String sort, @RequestParam(defaultValue = "asc") String order, Model model){
         List<Home> homeList;
         Sort.Direction direction= (order.equals("desc") ?  Sort.Direction.DESC : Sort.Direction.ASC);
         if ( sort =="area"){
