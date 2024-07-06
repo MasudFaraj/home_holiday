@@ -57,10 +57,10 @@ public class homeController {
     }
 
     @GetMapping("/list")
-    public String showlist(@RequestParam(defaultValue = " ") String sort, @RequestParam(defaultValue = "asc") String order, Model model){
+    public String showlist(@RequestParam(defaultValue = " ") String sort, @RequestParam(defaultValue = "asc",required = false) String order, Model model){
         List<Home> homeList;
         Sort.Direction direction= (order.equals("desc") ?  Sort.Direction.DESC : Sort.Direction.ASC);
-        if ( sort =="area"){
+        if ( sort.equals("area")){
             homeList = homeRepo.findAll(Sort.by(direction, "area"));
         } else {
             homeList= homeRepo.findAll(Sort.by("city").ascending().

@@ -16,14 +16,19 @@
                     <th></th>
                     <th>Typ der Unterkunft</th>
                     <th>Name der Unterkunft</th>
-                    <th>Name der Vermieter</th>
+<!--                    <th>Name der Vermieter</th>-->
                     <th>Stadt</th>
-                    <th><a href="@{|?sort=area&order=${order}|}" >Quadratmeter</a></th>
+                    <th><a th:href="@{|?sort=area&order=${order}|}" class="table-header-link">Quadratmeter</a>
+                        <span th:if="${sort == 'area' and order == 'asc'}">&#x2BC6;</span>
+                        <span th:if="${sort == 'area' and order == 'desc'}">&#x2BC5;</span>
+                       <!-- <span th:if="${sort == 'area' and order == 'asc'}"><i class="fa-solid fa-arrow-down-1-9"></i></span>
+                        <span th:if="${sort == 'area' and order == 'asc'}"><i class="fa-solid fa-arrow-up-1-9"></i></i></span>-->
+                    </th>
                     <th>Anzahl Betten</th>
                     <th>Küchenausstattung</th>
                     <th>Bad=B Dusche=D</th>
                     <th colspan="3">
-                        <div>Preis/Nacht</div>
+                        <div style="text-align: center">Preis/Nacht</div>
                         <table class="table table-bordered table-sm table-info">
                             <tr>
                                 <th>Saison A:</th>
@@ -47,15 +52,15 @@
 <!--                    <input type="hidden" th:text="*{getIdAccommodation()}"/>-->
                     <td th:text="*{getType()== 'FH'} ? Ferienhaus : Ferienwohnung"></td>
                     <td th:text="*{getAccommodationName()}"/>
-                    <td th:text="*{getLessor()?.getLastname()} + ' ' + *{getLessor()?.getFirstname()}"/>
+<!--                    <td th:text="*{getLessor()?.getLastname()} + ' ' + *{getLessor()?.getFirstname()}"/>-->
                     <td th:text="*{city}"/>
                     <td th:text="*{area}"/>
                     <td th:text="*{numberOfBeds}"/>
                     <td th:text="*{kitchenType} == 'Kn' ? Kochnische : Küche"/>
                     <td th:text="*{showerOrBathtub}"/>
-                    <td th:text="*{#numbers.formatCurrency(getPrice().getSeasonA())}"></td>
-                    <td th:text="*{#numbers.formatCurrency(price.getSeasonB())}"></td>
-                    <td th:text="*{#numbers.formatCurrency(price.getSeasonC())}"></td>
+                    <td th:text="*{getPrice().getSeasonA() + ' €'}"></td>
+                    <td th:text="*{price.getSeasonB() + ' €'}"></td>
+                    <td th:text="*{price.getSeasonC() + ' €'}"></td>
                 </tr>
             </tbody>
         </table>

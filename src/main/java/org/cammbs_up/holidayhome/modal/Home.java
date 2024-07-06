@@ -58,7 +58,7 @@ public class Home {
     private Price price;
 
     @OneToOne (cascade = CascadeType.ALL)
-    @JoinColumn(name="id_vermieterIn", referencedColumnName = "id_vermieterIn")
+    @JoinColumn(name="vermieterIn_id", referencedColumnName = "id_vermieterIn")
     private Lessor lessor;
 
     @Column(name="wlan")
