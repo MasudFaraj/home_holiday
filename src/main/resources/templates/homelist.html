@@ -9,8 +9,20 @@
 
     <header th:replace="~{fragment/general::header}"></header>
 
+    <form action="/search">
+        <div class="container-fluid mb-3 mt-3">
+            <div class="row mb-2 justify-content-end">
+                <div class="col-md-2"><input type="text" name="searchText" th:value="${searchText}?:''"
+                                             class="form-control form-control-sm"></div>
+                <div class="col-md-auto">
+                    <button class="btn btn-outline-primary btn-sm"><span class="material-icons">search</span></button>
+                </div>
+            </div>
+        </div>
+    </form>
+
     <main class="container-fluid ">
-        <table class="table table-info table-hover table-bordered">
+        <table class="table table-info table-hover table-bordered shadow">
             <thead class=" table-primary accent">
                 <tr>
                     <th></th>
@@ -24,7 +36,10 @@
                        <!-- <span th:if="${sort == 'area' and order == 'asc'}"><i class="fa-solid fa-arrow-down-1-9"></i></span>
                         <span th:if="${sort == 'area' and order == 'asc'}"><i class="fa-solid fa-arrow-up-1-9"></i></i></span>-->
                     </th>
-                    <th>Anzahl Betten</th>
+                    <th><a th:href="@{|?sort=numberOfBeds&order=${order}|}">Anzahl Betten</a>
+                        <span th:if="${sort=='numberOfBeds' and order == 'asc'}">&#x2BC6;</span>
+                        <span th:if="${sort=='numberOfBeds' and order == 'desc'}">&#x2BC5;</span>
+                    </th>
                     <th>Küchenausstattung</th>
                     <th>Bad=B Dusche=D</th>
                     <th colspan="3">
@@ -54,7 +69,7 @@
                     <td th:text="*{getAccommodationName()}"/>
 <!--                    <td th:text="*{getLessor()?.getLastname()} + ' ' + *{getLessor()?.getFirstname()}"/>-->
                     <td th:text="*{city}"/>
-                    <td th:text="*{area}"/>
+                    <td th:text="*{area + ' m²'}"/>
                     <td th:text="*{numberOfBeds}"/>
                     <td th:text="*{kitchenType} == 'Kn' ? Kochnische : Küche"/>
                     <td th:text="*{showerOrBathtub}"/>

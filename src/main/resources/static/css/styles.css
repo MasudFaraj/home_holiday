@@ -30,11 +30,62 @@ header table li {
     height:150px;
     margin:0;
 }
+.bildanpassenGal{
+    width:400px;
+    height:400px;
+    margin: 0;
+}
+.vorschaubild1{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
 #vorschaubild{
     width:100%;
     height:100%;
     object-fit:cover;
 }
+#vorschaubild1{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+#vorschaubild2{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+#vorschaubild3{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+#vorschaubild4{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+#vorschaubild5{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+#vorschaubild6{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+#vorschaubild7{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+#vorschaubild8{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
 header table li a {
     display: inline;
     color: white;

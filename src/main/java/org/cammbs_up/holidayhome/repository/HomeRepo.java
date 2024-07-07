@@ -8,5 +8,7 @@ import org.springframework.stereotype.Repository;
 public interface HomeRepo extends JpaRepository<Home, Integer> {
 
     Home findByIdAccommodation(int id);
+    Home deleteById( int id);
+
 
 }

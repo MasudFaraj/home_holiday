@@ -10,9 +10,9 @@
 
 
     <!-- Carousel -->
-    <!--<div id="demo" class="carousel slide" data-bs-ride="carousel">
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
-        &lt;!&ndash; Indicators/dots &ndash;&gt;
+        <!-- Indicators/dots -->
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
             <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
@@ -22,7 +22,7 @@
             <button type="button" data-bs-target="#demo" data-bs-slide-to="5"></button>
 
         </div>
-        &lt;!&ndash; The slideshow/carousel &ndash;&gt;
+        <!-- The slideshow/carousel -->
         <div th:object="${home}" class="carousel-inner" >
             <div class="carousel-item active" >
                 <img th:src="@{'images/holidayhomebilder/thumbnails/'+*{getImage()}}" alt="Ferienhaus" class="d-block" >
@@ -43,14 +43,14 @@
                 <img th:src="@{'images/holidayhomebilder/details_images/'+*{getDetailsImages()}+ ' Garten'+'.jpg'}" alt="Garten" class="d-block" >
             </div>
         </div>
-        &lt;!&ndash; Left and right controls/icons &ndash;&gt;
+        <!-- Left and right controls/icons -->
         <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
             <span class="carousel-control-next-icon"></span>
         </button>
-    </div>-->
+    </div>
 
     <section style="margin-top: 100px">
         <h2>Galerie</h2>
@@ -58,31 +58,31 @@
             <table class=" container-fluid" th:object="${home}">
                 <tr>
                     <td>
-                        <img th:src="@{'images/holidayhomebilder/thumbnails/'+*{getImage()}}" alt="Ferienhaus" class="d-block" class="rounded">
+                        <figure class="bildanpassenGal"><img id="vorschaubild1" th:src="@{'images/holidayhomebilder/thumbnails/'+*{getImage()}}" alt="Ferienhaus" class="rounded"></figure>
                         <br><p th:text="*{getType()=='FH'} ? Ferienhaus : FerienWohnung"></p>
                     </td>
                     <td>
-                        <img th:src="@{'images/holidayhomebilder/details_images/'+*{getDetailsImages()}+ ' Schlafzimmer'+'.jpg'}" alt="Schlafzimmer" class="rounded"><br>Schlafzimmer-1
+                        <figure class="bildanpassenGal"><img id="vorschaubild2" th:src="@{'images/holidayhomebilder/details_images/'+*{getDetailsImages()}+ ' Schlafzimmer'+'.jpg'}" class="rounded"></figure><br>Schlafzimmer-1
                     </td>
                     <td>
-                        <img th:src="@{'images/holidayhomebilder/details_images/'+*{getDetailsImages()}+ ' Schlafzimmer 1'+'.jpg'}" alt="Schlafzimmer" class="rounded"><br>Schlafzimmer-2
+                        <figure class="bildanpassenGal"><img id="vorschaubild3" th:src="@{'images/holidayhomebilder/details_images/'+*{getDetailsImages()}+ ' Schlafzimmer 1'+'.jpg'}" class="rounded"></figure><br>Schlafzimmer-2
                     </td>
                     <td>
-                        <img th:src="@{'images/holidayhomebilder/details_images/'+*{getDetailsImages()}+ ' Wohnzimmer'+'.jpg'}" alt="Wohnzimmer" class="rounded">Wohnzimmer
+                        <figure class="bildanpassenGal"><img id="vorschaubild4" th:src="@{'images/holidayhomebilder/details_images/'+*{getDetailsImages()}+ ' Wohnzimmer'+'.jpg'}" class="rounded"></figure><br>Wohnzimmer
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <img th:src="@{'images/holidayhomebilder/details_images/'+*{getDetailsImages()}+ ' Kueche'+'.jpg'}" alt="Küche" class="rounded">Wohnzimmer
+                        <figure class="bildanpassenGal"><img id="vorschaubild5" th:src="@{'images/holidayhomebilder/details_images/'+*{getDetailsImages()}+ ' Kueche'+'.jpg'}" class="rounded"></figure><br>Küche
                     </td>
                     <td>
-                        <img th:src="@{'images/holidayhomebilder/details_images/'+*{getDetailsImages()}+ ' Bad'+'.jpg'}" alt="Badzimmer" class="rounded"><br>Küche
+                        <figure class="bildanpassenGal"><img id="vorschaubild6" th:src="@{'images/holidayhomebilder/details_images/'+*{getDetailsImages()}+ ' Bad'+'.jpg'}"  class="rounded"></figure><br>Badzimmer
                     </td>
                     <td>
-                        <img th:src="@{'images/holidayhomebilder/details_images/'+*{getDetailsImages()}+ ' Kueche'+'.jpg'}" alt="Badezimmer" class="rounded"><br>Badezimmer
+                        <figure class="bildanpassenGal"><img id="vorschaubild7" th:src="@{'images/holidayhomebilder/details_images/'+*{getDetailsImages()}+ ' Garten'+'.jpg'}"  class="rounded"></figure><br>Garten
                     </td>
                     <td>
-                        <img th:src="@{'images/holidayhomebilder/details_images/'+*{getDetailsImages()}+ ' Umgebung'+'.jpg'}" alt="Badezimmer" class="rounded"><br>Badezimmer
+                        <figure class="bildanpassenGal"><img id="vorschaubild8" th:src="@{'images/holidayhomebilder/details_images/'+*{getDetailsImages()}+ ' Umgebung'+'.jpg'}" class="rounded"></figure><br>Umgebung
                     </td>
                 </tr>
             </table>

@@ -107,7 +107,7 @@ public class Home {
         File file = new File(path + filename);
         String detailImage = getAccommodationName().replace("ü","ue").replace("ö","oe");
         System.err.println(detailImage);
-        return (file.exists()) ? detailImage : "logo_holiday_home.png";
+        return (file.exists()) ? detailImage : "logo_holiday_home";
     }
     public int getIdAccommodation() {
         return idAccommodation;

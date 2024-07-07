@@ -62,6 +62,8 @@ public class homeController {
         Sort.Direction direction= (order.equals("desc") ?  Sort.Direction.DESC : Sort.Direction.ASC);
         if ( sort.equals("area")){
             homeList = homeRepo.findAll(Sort.by(direction, "area"));
+        } else if (sort.equals("numberOfBeds")) {
+            homeList = homeRepo.findAll(Sort.by(direction, "numberOfBeds"));
         } else {
             homeList= homeRepo.findAll(Sort.by("city").ascending().
                     and(Sort.by("accommodationName").ascending()));
@@ -76,6 +78,7 @@ public class homeController {
         model.addAttribute("homeList", homeList);
         return "homelist";
     }
+
     @GetMapping("/details")
     public String showHomeDetails(@RequestParam int id, Model model){
         Home home = homeRepo.findByIdAccommodation(id);
