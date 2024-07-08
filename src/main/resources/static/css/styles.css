@@ -2,7 +2,8 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;  /* */
     margin: 0;
-    padding: 0;
+    padding-top: 250px; /* Platz schaffen für den fixierten Header */
+    padding-bottom: 70px; /* Platz schaffen für den fixierten Footer */
     background: #f4f4f4;
     color: #333;
 }
@@ -13,6 +14,22 @@ header {
     padding: 10px 0;
     text-align: center;
     font-family: 'Arima Madurai', cursive;
+    position: fixed;
+    top:0;
+    z-index: 1000;  /*sorgt dafür, dass der Footer über anderen Inhalten bleibt*/
+    display: flex;
+    align-items: center;
+}
+/*.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #fff;
+}*/
+.table th {
+    position: sticky;
+    top: 245px;
+    z-index: 1; /* Ensures the header stays above the table content */
 }
 header table ul {
     list-style-type: none;
@@ -102,11 +119,13 @@ footer {
     color: #ffffff;
     text-align: center;
     padding: 10px 0;
-    position: -ms-device-fixed;
+    position: fixed;  /*fixiert den Footer am unteren Rand des Viewports.*/
     bottom: 0;
+    margin-top: 10px;
     width: 100%;
     font-family: 'Arima Madurai', cursive;
 }
+
 #demo{
     width: 600px;
     height: 400px;

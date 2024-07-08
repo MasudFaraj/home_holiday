@@ -105,19 +105,19 @@
                 </p>
                 <h3 class="second-header">Ausstattung</h3>
                 <p th:inline="text">
-                    [[*{numberOfBedrooms + ' Schlafzimmer'}]]<span class="tab-space"></span>
-                    [[*{numberOfLivingrooms + ' Wohnzimmer'}]]<span class="tab-space"></span>
-                    [[*{wlan == 'Ja' ? 'Wlan' : ''}]]<span class="tab-space"></span>
+                    [[*{numberOfBedrooms + ' Schlafzimmer,  '}]]<span class="tab-space"></span>
+                    [[*{numberOfLivingrooms + ' Wohnzimmer,  '}]]<span class="tab-space"></span>
+                    [[*{wlan == true ? 'Wlan' : ''}]]<span class="tab-space"></span>
                 </p>
                 <p th:inline="text">
-                    [[*{dogsAllowed == 'Ja' ? 'Hunde willkommen' : ''}]]<span class="tab-space"></span>
-                    [[*{nonSmoker == 'Ja' ? 'Nichtraucher' : ''}]]<span class="tab-space"></span>
-                    [[*{tv == 'Ja' ? 'TV' : ''}]]<span class="tab-space"></span>
+                    [[*{dogsAllowed == true ? 'Hunde willkommen,  ' : ''}]]<span class="tab-space"></span>
+                    [[*{nonSmoker == true ? 'Nichtraucher,  ' : ''}]]<span class="tab-space"></span>
+                    [[*{tv == true ? 'TV' : ''}]]<span class="tab-space"></span>
                 </p>
                 <p th:inline="text">
-                    [[*{washingMachine == 'Ja' ? 'Waschmaschine' : ''}]]<span class="tab-space"></span>
-                    [[*{onSiteParking == 'Ja' ? 'Parkplatz' : ''}]]<span class="tab-space"></span>
-                    [[*{sauna == 'Ja' ? 'Sauna' : ''}]]
+                    [[*{washingMachine == '1' ? 'Waschmaschine,  ' : ''}]]<span class="tab-space"></span>
+                    [[*{onSiteParking == '1' ? 'Parkplatz,  ' : ''}]]<span class="tab-space"></span>
+                    [[*{sauna == '1' ? 'Sauna' : ''}]]
                 </p>
                 <p class="mb-4" th:utext="*{getDescription()}"></p>
             </div>
