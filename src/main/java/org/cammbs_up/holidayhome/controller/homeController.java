@@ -79,6 +79,21 @@ public class homeController {
         return "homelist";
     }
 
+    @GetMapping("/search")
+    public String searchHomeList(@RequestParam String searchText, Model model){
+        List<Home> homeList;
+        if(searchText.trim().isEmpty()){
+            homeList= homeRepo.findAll(Sort.by("city").ascending().
+                    and(Sort.by("accommodationName").ascending()));
+        } else {
+            homeList= homeRepo.findByAccommodationNameContaining(searchText);
+        }
+
+//        model.addAttribute("title", "Liste");
+        model.addAttribute("homeListe",homeList);
+        model.addAttribute("searchText", searchText);
+        return "homelist";
+    }
     @GetMapping("/details")
     public String showHomeDetails(@RequestParam int id, Model model){
         Home home = homeRepo.findByIdAccommodation(id);
