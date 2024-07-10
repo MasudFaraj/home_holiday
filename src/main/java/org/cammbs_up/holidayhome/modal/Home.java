@@ -18,7 +18,7 @@ import java.io.File;
  * @version 27.06.2024
  */
 @Entity
-@Table(name="stammdaten")
+@Table(name="unterkuenfte")
 public class Home {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -62,21 +62,27 @@ public class Home {
     private Lessor lessor;
 
     @Column(name="wlan")
-    private boolean wlan;
+    private String wlan;
+//    private boolean wlan;
     @Column(name="tv")
-    private boolean tv;
+    private String tv;
+//    private boolean tv;
     @Column(name="waschmaschine")
-    private boolean washingMachine;
+    private String washingMachine;
     @Column(name="hunde_erlaubt")
-    private boolean dogsAllowed;
+    private String dogsAllowed;
+//    private boolean dogsAllowed;
     @Column(name="nichtraucher")
-    private boolean nonSmoker;
+    private String nonSmoker;
+//    private boolean nonSmoker;
 
     @Column(name="hauseigener_parkplatz")
-    private boolean onSiteParking;
+    private String onSiteParking;
+//    private boolean onSiteParking;
 
     @Column(name="sauna")
-        private boolean sauna;
+        private String sauna;
+//        private boolean sauna;
     @Column(name="beschreibungstext")
         private String description;
     public String getDescription() {
@@ -87,11 +93,11 @@ public class Home {
         this.description = description;
     }
 
-    public boolean isSauna() {
+    public String isSauna() {
         return sauna;
     }
 
-    public void setSauna(boolean sauna) {
+    public void setSauna(String sauna) {
         this.sauna = sauna;
     }
 
@@ -221,51 +227,51 @@ public class Home {
         this.lessor = lessor;
     }
 
-    public boolean isWlan() {
+    public String isWlan() {
         return wlan;
     }
 
-    public void setWlan(boolean wlan) {
+    public void setWlan(String wlan) {
         this.wlan = wlan;
     }
 
-    public boolean isTv() {
+    public String isTv() {
         return tv;
     }
 
-    public void setTv(boolean tv) {
+    public void setTv(String tv) {
         this.tv = tv;
     }
 
-    public boolean isWashingMachine() {
+    public String isWashingMachine() {
         return washingMachine;
     }
 
-    public void setWashingMachine(boolean washingMachine) {
+    public void setWashingMachine(String washingMachine) {
         this.washingMachine = washingMachine;
     }
 
-    public boolean isDogsAllowed() {
+    public String isDogsAllowed() {
         return dogsAllowed;
     }
 
-    public void setDogsAllowed(boolean dogsAllowed) {
+    public void setDogsAllowed(String dogsAllowed) {
         this.dogsAllowed = dogsAllowed;
     }
 
-    public boolean isNonSmoker() {
+    public String isNonSmoker() {
         return nonSmoker;
     }
 
-    public void setNonSmoker(boolean nonSmoker) {
+    public void setNonSmoker(String nonSmoker) {
         this.nonSmoker = nonSmoker;
     }
 
-    public boolean isOnSiteParking() {
+    public String isOnSiteParking() {
         return onSiteParking;
     }
 
-    public void setOnSiteParking(boolean onSiteParking) {
+    public void setOnSiteParking(String onSiteParking) {
         this.onSiteParking = onSiteParking;
     }
 

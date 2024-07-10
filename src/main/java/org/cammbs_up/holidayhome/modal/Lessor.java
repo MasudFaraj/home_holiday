@@ -16,7 +16,7 @@ import jakarta.persistence.*;
  * @version 28.06.2024
  */
 @Entity
-@Table(name="vermieterinnen")
+@Table(name="vermieter_innen")
 public class Lessor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
