@@ -1,24 +1,51 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;  /* */
-    margin: 0;
-    padding-top: 250px; /* Platz schaffen für den fixierten Header */
+    margin: 10px 10px;
+    padding-top: 200px; /* Platz schaffen für den fixierten Header */
     padding-bottom: 70px; /* Platz schaffen für den fixierten Footer */
     background: #f4f4f4;
     color: #333;
-}
 
+}
+main  {
+    margin: 10px 10px 50px 10px;
+    text-align: center;
+    /*max-width: 1200px;*/
+}
 header {
-    background: mediumblue;
+    background: #578cc9;
     color: #ffffff;
-    padding: 10px 0;
+    /*margin-bottom: 50px;*/
+    padding: 1rem;
     text-align: center;
     font-family: 'Arima Madurai', cursive;
+    width: 100%;
     position: fixed;
     top:0;
-    z-index: 1000;  /*sorgt dafür, dass der Footer über anderen Inhalten bleibt*/
+    z-index: 1000;  /*sorgt dafür, dass der header über anderen Inhalten bleibt*/
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+header table{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header a{
+    display: flex;
+    align-items: center;
+}
+header img {
+    height:150px;
+}
+header ul {
+    /*flex-grow: 1;*/
+    display: flex;
+    justify-content: center;
 }
 /*.sticky-header {
     position: sticky;
@@ -28,7 +55,7 @@ header {
 }*/
 .table th {
     position: sticky;
-    top: 245px;
+    top: 180px;
     z-index: 1; /* Ensures the header stays above the table content */
 }
 header table ul {
@@ -36,11 +63,19 @@ header table ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: mediumblue;
+    /*background-color: mediumblue;*/
 }
-
-header table li {
-    float: left;
+.filter {
+    text-align: left;
+    margin: 10px;
+}
+.filter-button, .search-button {
+    background-color: #578cc9;
+    color: white;
+    padding: 3px 10px;
+    margin-left: 35px;
+    border-radius: 8px;
+    border-width: 0;
 }
 .bildanpassen{
     width:150px;
@@ -115,7 +150,7 @@ main {
     margin:20px;
 }
 footer {
-    background: blue;
+    background: #578cc9;
     color: #ffffff;
     text-align: center;
     /*padding: 10px 0:*/
@@ -133,6 +168,9 @@ footer {
     width: 600px;
     height: 400px;
     margin: 0 auto;
+       /* position: sticky;
+        top: 245px;
+        z-index: 1; !* Ensures the header stays above the table content *!*/
 }
 
 .carousel-inner>.carousel-item>img {
@@ -160,4 +198,5 @@ h2,h3 {
 }
 #price-table th {
     color: #578cc9;
+    width: 30%;
 }

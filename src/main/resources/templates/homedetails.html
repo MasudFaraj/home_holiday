@@ -117,14 +117,10 @@
 <!--                    <span th:unless="*{tv == 'Ja'}" style="color:#dddddd"><span class="fa-solid fa-tv"></span> kein TV</span>&nbsp;&nbsp;&nbsp;-->
                     <span th:if="*{washingMachine == 'Ja'}" style=" color:#578cc9"><span class="fa-brands fa-instagram"></span> Waschmaschine</span>
 <!--                    <span th:unless="*{washingMachine == 'Ja'}" style="color:#dddddd"><span class="fa-brands fa-instagram"></span> keine Waschmaschine</span>&nbsp;&nbsp;&nbsp;-->
-                    <span th:if="*{parking == 'Ja'}" style=" color:#578cc9"><span class="fa-solid fa-square-parking"></span> Parkplatz</span>
+                    <span th:if="*{getOnSiteParking() == 'Ja'}" style=" color:#578cc9"><span class="fa-solid fa-square-parking"></span> Parkplatz</span>
 <!--                    <span th:unless="*{parking == 'Ja'}" style="color:#dddddd"><span class="fa-solid fa-square-parking"></span> kein Parkplatz</span>&nbsp;&nbsp;&nbsp;-->
                     [[*{sauna == 'Ja' ? 'Sauna' : ''}]]
                 </p>
-                <p class="mb-4" th:utext="*{getDescription()}"></p>
-            </div>
-
-            </p>
                 <p class="mb-4" th:utext="*{getDescription()}"></p>
             </div>
 
@@ -230,35 +226,35 @@
             </div>
             <div class="col-lg-3 bg-warning text-blue">
                 <p><strong>Nichtraucher</strong></p>
-                <p th:text="*{isNonSmoker()}"></p>
+                <p th:text="*{getNonSmoker()}"></p>
             </div><div class="col-lg-3 bg-warning text-blue">
                 <p><strong>Parkplatz</strong></p>
-                <p th:text="*{isOnSiteParking()}"></p>
+                <p th:text="*{getOnSiteParking()}"></p>
             </div><div class="col-lg-3 bg-warning text-blue">
                 <p><strong>Waschmaschine</strong></p>
-                <p th:text="*{isWashingMachine()}"></p>
+                <p th:text="*{getOnSiteParking()}"></p>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-3 bg-warning text-blue">
                 <p><strong>WLAN</strong></p>
-                <p th:text="*{isWlan()}"></p>
+                <p th:text="*{getWlan()}"></p>
             </div>
             <div class="col-lg-3 bg-warning text-blue">
                 <p><strong>Hunde erlaubt</strong></p>
-                <p th:text="*{isDogsAllowed()}"></p>
+                <p th:text="*{getDogsAllowed()}"></p>
             </div><div class="col-lg-3 bg-warning text-blue">
                 <p><strong>TV</strong></p>
-                <p th:text="*{isTv()}"></p>
+                <p th:text="*{getTv()}"></p>
             </div><div class="col-lg-3 bg-warning text-blue">
                 <p><strong>Sauna</strong></p>
-                <p th:text="*{isSauna()}"></p>
+                <p th:text="*{getSauna()}"></p>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12 bg-warning text-blue">
                 <p><strong>Beschreibung</strong></p>
-                <p th:text="*{getDescription()}"></p>
+                <p th:utext="*{getDescription()}"></p>
             </div>
         </div>
         <div class="row">

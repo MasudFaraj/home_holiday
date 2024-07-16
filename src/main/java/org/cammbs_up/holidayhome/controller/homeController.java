@@ -89,9 +89,14 @@ public class homeController {
             homeList= homeRepo.findByAccommodationNameContaining(searchText);
         }
 
-//        model.addAttribute("title", "Liste");
+        model.addAttribute("title", "Liste");
         model.addAttribute("homeListe",homeList);
         model.addAttribute("searchText", searchText);
+
+        System.out.println("Found homes: " + homeList.size());
+        for (Home home : homeList) {
+            System.out.println(home.getAccommodationName());
+        }
         return "homelist";
     }
     @GetMapping("/details")

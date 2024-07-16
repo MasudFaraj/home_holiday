@@ -14,35 +14,37 @@
     <title>Title</title>
 </head>
 <body>
-    <header th:fragment="header" class="container-fluid">
-        <table style="width: 100%;" >
+    <header th:fragment="header" >
+        <table>
             <tr>
                 <td rowspan="2" style="width: 15%">
-                  <a href="/homepage" ><img src="images/logo_holiday_home.png" class="rounded-circle img-thumbnail" alt="logo-image"
-                                            style="width:100%; height:100%"></a>
+                  <a href="/homepage" ><img src="images/logo_holiday_home.png"  alt="logo-image"></a>
                 </td>
-                <td style="width: 15%"></td>
+<!--                <td style="width: 15%"></td>-->
                 <td>
-                    <h1 class="container-fluid display-1" style="float: left"  >Holiday Home Nordstrand</h1>
-
+                    <h1 >Holiday Home Nordstrand</h1>
                 </td>
             </tr>
             <tr>
-                <td style="width: 15%"></td>
+<!--                <td style="width: 15%"></td>-->
                 <td>
                         <ul>
                             <li>
                                 <a class="active" href="/homepage">Startseite</a>
                             </li>
+                            <li> | </li>
                             <li>
                                 <a href="/list">Listenansicht</a>
                             </li>
+                            <li> | </li>
                             <li>
                                 <a href="/galerie">Galerie</a>
                             </li>
+                            <li> | </li>
                             <li  style="float:right">
                                 <a href="/contact">Kontakt</a>
                             </li>
+                            <li> | </li>
                             <li style="float:right">
                                 <a href="/directions">Anfahrt</a>
                             </li>

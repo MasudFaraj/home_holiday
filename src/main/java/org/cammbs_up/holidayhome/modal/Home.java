@@ -38,7 +38,7 @@ public class Home {
     private String locationPlanSquare ;
 
     @Column(name="groesse_qm")
-    private String area;
+    private int area;
 
     @Column(name="anzahl_der_betten_pro_einheit")
     private int numberOfBeds;
@@ -83,7 +83,7 @@ public class Home {
     @Column(name="sauna")
         private String sauna;
 //        private boolean sauna;
-    @Column(name="beschreibungstext")
+    @Column(name="beschreibungstext",columnDefinition = "text")
         private String description;
     public String getDescription() {
         return description;
@@ -93,7 +93,7 @@ public class Home {
         this.description = description;
     }
 
-    public String isSauna() {
+    public String getSauna() {
         return sauna;
     }
 
@@ -163,11 +163,11 @@ public class Home {
         this.locationPlanSquare = locationPlanSquare;
     }
 
-    public String getArea() {
+    public int getArea() {
         return area;
     }
 
-    public void setArea(String area) {
+    public void setArea(int area) {
         this.area = area;
     }
 
@@ -227,7 +227,7 @@ public class Home {
         this.lessor = lessor;
     }
 
-    public String isWlan() {
+    public String getWlan() {
         return wlan;
     }
 
@@ -235,7 +235,7 @@ public class Home {
         this.wlan = wlan;
     }
 
-    public String isTv() {
+    public String getTv() {
         return tv;
     }
 
@@ -243,7 +243,7 @@ public class Home {
         this.tv = tv;
     }
 
-    public String isWashingMachine() {
+    public String getWashingMachine() {
         return washingMachine;
     }
 
@@ -251,7 +251,7 @@ public class Home {
         this.washingMachine = washingMachine;
     }
 
-    public String isDogsAllowed() {
+    public String getDogsAllowed() {
         return dogsAllowed;
     }
 
@@ -259,7 +259,7 @@ public class Home {
         this.dogsAllowed = dogsAllowed;
     }
 
-    public String isNonSmoker() {
+    public String getNonSmoker() {
         return nonSmoker;
     }
 
@@ -267,7 +267,7 @@ public class Home {
         this.nonSmoker = nonSmoker;
     }
 
-    public String isOnSiteParking() {
+    public String getOnSiteParking() {
         return onSiteParking;
     }
 

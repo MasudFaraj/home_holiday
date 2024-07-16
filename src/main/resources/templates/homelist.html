@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <th:block th:replace="~{fragment/general::head}"></th:block>
+    <script src="https://kit.fontawesome.com/c23a59ca36.js" crossorigin="anonymous"></script>
     <script th:src="@{js/functions.js}"></script>
     <title>Listenansicht - Ferienhäuser Nordstrand</title>
 </head>
@@ -9,18 +10,35 @@
 
     <header th:replace="~{fragment/general::header}"></header>
 
-    <form action="/search" method="get">
+    <form th:action="@{/search}" method="get">
         <div class="container-fluid mb-3 mt-3">
             <div class="row mb-2 justify-content-start">
-                <div class="col-md-2"><input type="text" name="searchText" th:value="${searchText}?:''"
+                <div class="col-md-2"><input type="text" name="searchText" placeholder="Search..." th:value="${searchText}?:''"
                                              class="form-control form-control-sm"></div>
                 <div class="col-md-auto">
-                    <button class="btn btn-outline-primary btn-sm"><span class="material-icons">search</span></button>
+                    <button type="submit" class="search-button">house-name search</button>
                 </div>
             </div>
         </div>
     </form>
-
+    <form action="#" th:action="@{/unterkuenfte}" method="get">
+        <p class="filter">&nbsp;&nbsp;Ich suche eine Wohnung</p>
+        <table class="filter">
+            <tr>
+                <td>
+                    <label for="start" class="filter">von:</label>
+                    <input type="date" id="start" name="startDate" th:value="${startDate}" class="filter" placeholder="tt.mm.jjjj" required pattern="\d{2}\.\d{2}\.\d{4}">
+                </td>
+                <td>
+                    <label for="end">&nbsp;&nbsp;bis:</label>
+                    <input type="date" id="end" name="endDate" th:value="${endDate}" class="filter" placeholder="tt.mm.jjjj" value="" min="2024-01-01" max="2030-12-31" required pattern="\d{2}\.\d{2}\.\d{4}">
+                </td>
+                <td>
+                    <button type="submit" class="filter-button">freie Wohnung finden</button>
+                </td>
+            </tr>
+        </table>
+    </form>
     <main class="container-fluid">
         <table class="table table-info table-hover table-bordered shadow">
             <thead class=" table-primary " >
@@ -31,9 +49,9 @@
 <!--                    <th>Name der Vermieter</th>-->
                     <th>Stadt</th>
                     <th><a th:href="@{|?sort=area&order=${order}|}" class="table-header-link">Quadratmeter</a>
-                        <span th:if="${sort == 'area' and order == 'asc'}">&#x2BC6;</span>
-                        <span th:if="${sort == 'area' and order == 'desc'}">&#x2BC5;</span>
-                       <!-- <span th:if="${sort == 'area' and order == 'asc'}"><i class="fa-solid fa-arrow-down-1-9"></i></span>
+                        <span th:if="${sort == 'area' and order == 'asc'}"><i class="fa-solid fa-arrow-down-9-1"></i></span>
+                        <span th:if="${sort == 'area' and order == 'desc'}"><i class="fa-solid fa-arrow-up-1-9"></i></span>
+                       <!-- <span th:if="${sort == 'area' and order == 'asc'}"><i class="fa-solid fa-arrow-down-9-1"></i></span>
                         <span th:if="${sort == 'area' and order == 'asc'}"><i class="fa-solid fa-arrow-up-1-9"></i></i></span>-->
                     </th>
                     <th><a th:href="@{/list(sort='numberOfBeds',order=${order})}">Anzahl Betten</a>
